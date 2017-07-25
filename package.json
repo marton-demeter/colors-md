@@ -14,5 +14,13 @@
     "colors"
   ],
   "author": "Marton Demeter <marton1029@gmail.com>",
-  "license": "GPL-3.0"
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marton-demeter/colors-md.git"
+  },
+  "bugs": {
+    "url": "https://github.com/marton-demeter/colors-md/issues"
+  },
+  "homepage": "https://github.com/marton-demeter/colors-md#readme"
 }
