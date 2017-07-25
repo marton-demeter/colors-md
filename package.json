@@ -1,0 +1,18 @@
+{
+  "name": "colors-md",
+  "version": "0.0.0",
+  "description": "Returns terminal escape codes for styling strings.",
+  "main": "colors-md.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "color",
+    "colors"
+  ],
+  "author": "Marton Demeter <marton1029@gmail.com>",
+  "license": "GPL-3.0"
+}
