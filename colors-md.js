@@ -1,6 +1,5 @@
 const ansi8 = require('./lib/ansi8.js');
 const ansi256 = require('./lib/ansi256.js');
-const colors256 = require('./lib/colors256.js');
 
 module.exports = {
   ansi8: {
@@ -35,14 +34,14 @@ module.exports = {
       } else { return }
       var min = undefined;
       var idx = undefined;
-      colors256.forEach((c) => {
+      ansi256.forEach((c) => {
         var val = Math.abs(c.r-r)+Math.abs(c.g-g)+Math.abs(c.b-b);
         if(min === undefined || val<min) {
           min = val;
-          idx = `${c.r} ${c.g} ${c.b}`;
+          idx = `\x1b[38;2;${c.r};${c.g};${c.b}m`;
         }
       });
-      return ansi256[idx];
+      return idx;
     },
   },
   reset:'\x1b[39m',
