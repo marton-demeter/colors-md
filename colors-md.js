@@ -19,6 +19,14 @@ module.exports = {
       parseInt(b, 16) < 128 ? b = 0 : b = 255;
       return ansi8[`${r} ${g} ${b}`];
     },
+    rgb: function(rgb) {
+      rgb.includes(',') ? rgb = rgb.split(',') : rgb = rgb.split(' ');
+      rgb.forEach((color) => { color = color.trim() });
+      parseInt(rgb[0]) < 128 ? rgb[0] = 0 : rgb[0] = 255;
+      parseInt(rgb[1]) < 128 ? rgb[1] = 0 : rgb[1] = 255;
+      parseInt(rgb[2]) < 128 ? rgb[2] = 0 : rgb[2] = 255;
+      return ansi8[`${rgb[0]} ${rgb[1]} ${rgb[2]}`];
+    },
   },
   ansi256: {
     hex: function(hex) {
@@ -36,6 +44,21 @@ module.exports = {
       var idx = undefined;
       ansi256.forEach((c) => {
         var val = Math.abs(c.r-r)+Math.abs(c.g-g)+Math.abs(c.b-b);
+        if(min === undefined || val<min) {
+          min = val;
+          idx = `\x1b[38;2;${c.r};${c.g};${c.b}m`;
+          if(min === 0) return idx;
+        }
+      });
+      return idx;
+    },
+    rgb: function(rgb) {
+      rgb.includes(',') ? rgb = rgb.split(',') : rgb = rgb.split(' ');
+      rgb.forEach((color) => { color = color.trim() });
+      var min = undefined;
+      var idx = undefined;
+      ansi256.forEach((c) => {
+        var val = Math.abs(c.r-rgb[0])+Math.abs(c.g-rgb[1])+Math.abs(c.b-rgb[2]);
         if(min === undefined || val<min) {
           min = val;
           idx = `\x1b[38;2;${c.r};${c.g};${c.b}m`;
