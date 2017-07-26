@@ -28,7 +28,7 @@ console.log(colors.ansi8.hex('#ff0000') + 'text' + colors.reset);
 console.log(colors.ansi8.hex('ff0000') + 'text' + colors.reset);
 
 console.log(colors.ansi8.hex('#f00') + 'text' + colors.reset);
-console.log(colors.ansi8.hex('ff0') + 'text' + colors.reset);
+console.log(colors.ansi8.hex('f00') + 'text' + colors.reset);
 
 console.log(colors.ansi256.hex('#00ff00') + 'text' + colors.reset);
 console.log(colors.ansi256.hex('00ff00') + 'text' + colors.reset);
