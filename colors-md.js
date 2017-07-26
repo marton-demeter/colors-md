@@ -39,6 +39,7 @@ module.exports = {
         if(min === undefined || val<min) {
           min = val;
           idx = `\x1b[38;2;${c.r};${c.g};${c.b}m`;
+          if(min === 0) return idx;
         }
       });
       return idx;
