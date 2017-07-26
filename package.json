@@ -1,6 +1,6 @@
 {
   "name": "colors-md",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Returns terminal escape codes for styling strings.",
   "main": "colors-md.js",
   "directories": {
