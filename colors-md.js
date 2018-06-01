@@ -28,6 +28,7 @@ module.exports = {
       return ansi8[`${rgb[0]} ${rgb[1]} ${rgb[2]}`];
     },
     color_h: function(text, hex) {
+      if(!hex) return text;
       if(hex.trim().slice(0,1) === '#') hex = hex.slice(1);
       if(hex.length === 6) {
         var r = hex.slice(0,2);
@@ -43,7 +44,8 @@ module.exports = {
       parseInt(b, 16) < 128 ? b = 0 : b = 255;
       return (ansi8[`${r} ${g} ${b}`] + text + '\x1b[39m');
     }, 
-    color_r: function(text, hex) {
+    color_r: function(text, rgb) {
+      if(!rgb) return text;
       rgb.includes(',') ? rgb = rgb.split(',') : rgb = rgb.split(' ');
       rgb.forEach((color) => { color = color.trim() });
       parseInt(rgb[0]) < 128 ? rgb[0] = 0 : rgb[0] = 255;
@@ -92,6 +94,7 @@ module.exports = {
       return idx;
     },
     color_h: function(text, hex) {
+      if(!hex) return text;
       if(hex.trim().slice(0,1) === '#') hex = hex.slice(1);
       if(hex.length === 6) {
         var r = parseInt(hex.slice(0,2),16);
@@ -115,6 +118,7 @@ module.exports = {
       return (idx + text + '\x1b[39m');
     },
     color_r: function(text, rgb) {
+      if(!rgb) return text;
       rgb.includes(',') ? rgb = rgb.split(',') : rgb = rgb.split(' ');
       rgb.forEach((color) => { color = color.trim() });
       var min = undefined;
